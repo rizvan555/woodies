@@ -1,12 +1,22 @@
-import logo from "./logo.svg";
+import styled from "styled-components";
 import "./App.css";
-import Header from "./components/Header";
+import Home from "./pages/Home";
+import { Route, Routes } from "react-router-dom";
+import About from "./pages/About";
+
+import Products from "./pages/Products";
+
+const AppStyled = styled.div``;
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <AppStyled>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/products" element={<Products />}></Route>
+      </Routes>
+    </AppStyled>
   );
 }
 
