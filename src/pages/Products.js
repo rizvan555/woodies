@@ -4,9 +4,9 @@ import logo from "../resource/images/logo.png";
 import Group19 from "../resource/images/Group19.png";
 import Group18 from "../resource/images/Group18.png";
 import Group20 from "../resource/images/Group20.png";
-
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const ProductsTopContainerStyled = styled.div`
   display: flex;
@@ -50,6 +50,21 @@ const ProductsMainStyled = styled.section`
 `;
 
 const Products = () => {
+  const [categories, setCategories] = useState([
+    {
+      title: "Jenson",
+      image: Group19,
+    },
+    {
+      title: "Deon",
+      image: Group18,
+    },
+    {
+      title: "Krisha",
+      image: Group20,
+    },
+  ]);
+
   return (
     <div>
       <Header />
@@ -60,15 +75,14 @@ const Products = () => {
         <h1>PRODUCTS</h1>
       </ProductsTopContainerStyled>
       <ProductsMainStyled>
-        <Link to="/productsItem">
-          <img src={Group19} alt="group19" />
-        </Link>
-        <Link>
-          <img src={Group18} alt="group18" />
-        </Link>
-        <Link>
-          <img src={Group20} alt="group20" />
-        </Link>
+        {categories.map((category, index) => {
+          return (
+            <div key={index}>
+              <h4>{category.title}</h4>
+              <img src={category.image} alt="image" />
+            </div>
+          );
+        })}
       </ProductsMainStyled>
       <Footer />
     </div>
