@@ -17,6 +17,10 @@ const TitleBox = styled.section`
   font-size: 24px;
   line-height: 33px;
   letter-spacing: 0.25em;
+  img {
+    width: 30px;
+    height: 30px;
+  }
 `;
 const Navbar = styled.nav`
   display: flex;

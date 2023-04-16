@@ -82,7 +82,6 @@ const Products = () => {
         {categories.map((category, index) => {
           return (
             <div key={index}>
-              <h4>{category.title}</h4>
               <img
                 src={category.image}
                 alt={category.title}
