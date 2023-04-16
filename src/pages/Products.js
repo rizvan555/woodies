@@ -50,7 +50,7 @@ const ProductsMainStyled = styled.section`
 `;
 
 const Products = () => {
-  const [categories, setCategories] = useState([
+  const categories = [
     {
       title: "Jenson",
       image: Group19,
@@ -63,7 +63,11 @@ const Products = () => {
       title: "Krisha",
       image: Group20,
     },
-  ]);
+  ];
+
+  const handleItemClick = (title) => {
+    window.location.href = `/products/${title}`;
+  };
 
   return (
     <div>
@@ -79,7 +83,11 @@ const Products = () => {
           return (
             <div key={index}>
               <h4>{category.title}</h4>
-              <img src={category.image} alt="image" />
+              <img
+                src={category.image}
+                alt={category.title}
+                onClick={() => handleItemClick(category.title)}
+              />
             </div>
           );
         })}
